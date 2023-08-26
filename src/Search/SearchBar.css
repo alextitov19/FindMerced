@@ -1,0 +1,11 @@
+.dropdown div {
+    margin: auto;
+}
+
+.dropdown-row {
+    display: flex;
+    flex-direction: row;
+    font-size: 20px;
+    padding: 5px;
+    width: 600px;
+}

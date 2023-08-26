@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import './App.css';
-var data = require("./test-data.json");
+import './SearchBar.css';
+var data = require("../test-data.json");
 
 const SearchBar = () => {
 
