@@ -2,6 +2,38 @@
   margin: 10px;
 }
 
+input[type=text] {
+  transition: width 1.4s ease-in-out;
+  width: 150px;
+  height: 50px;
+  font-size: 20px;
+  background-image: url('search.png');
+  background-color: rgb(209, 226, 253);
+  background-position: 10px 15px;
+  background-repeat: no-repeat;
+  padding-left: 40px;
+  border: solid black 2px;
+  border-radius: 10px;
+}
+
+input[type=text]:focus {
+  width: 300px;
+  outline: none;
+}
+
+
+/* .search-button {
+  background-color: #2b6ab8;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 10px;
+} */
+
 .dropdown div {
   margin-inline: auto;
 }

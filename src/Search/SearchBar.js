@@ -17,8 +17,8 @@ const SearchBar = () => {
 
     return (<div className="search-container">
         <div className="search-inner">
-            <input type='text' value={value} onChange={onChange} />
-            <button onClick={() => onSearch(value)}> Search </button>
+            <input type='text' placeholder='Search...' value={value} onChange={onChange} />
+            {/* <button className='search-button' onClick={() => onSearch(value)}> Search </button> */}
         </div>
 
         <div className='dropdown'>
