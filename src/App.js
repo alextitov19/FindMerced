@@ -27,8 +27,18 @@ function App() {
             const searchTerm = value.toLowerCase();
             const building = item.building.toLowerCase();
             const room = item.room.toLowerCase();
-            const resultString = building + room;
-            return searchTerm && resultString.startsWith(searchTerm);
+            const nickname = item.nickname.toLowerCase();
+            var flag = false
+            if (building.startsWith(searchTerm)) {
+              flag = true;
+            }
+            if (room.startsWith(searchTerm)) {
+              flag = true;
+            }
+            if (nickname.startsWith(searchTerm)) {
+              flag = true;
+            }
+            return searchTerm && flag;
           })
           .map((item) => (<div class='dropdown-row'>
             <div>{item.building}</div>
