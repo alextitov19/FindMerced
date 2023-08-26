@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './SearchBar.css';
+import SearchResultRow from './SearchResultRow.js'
 var data = require("../test-data.json");
 
 const SearchBar = () => {
@@ -37,12 +38,7 @@ const SearchBar = () => {
                 }
                 return searchTerm && flag;
             })
-                .map((item) => (<div class='dropdown-row'>
-                    <div>{item.building}</div>
-                    <div>{item.room}</div>
-                    <div>{item.hours}</div>
-                    <div>{item.days}</div>
-                </div>))}
+                .map(item => SearchResultRow(item))}
         </div>
     </div>);
 
