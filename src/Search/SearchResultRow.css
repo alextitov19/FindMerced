@@ -3,12 +3,36 @@
     flex-direction: row;
     font-size: 20px;
     padding: 5px;
-    width: 800px;
+    width: 600px;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin: 10px;
 }
 
 .nickname {
     font-size: large;
     font-weight: 600;
+    width: 100px;
+    margin: auto;
 }
 
-.building {}
+.location {
+    font-size: large;
+    font-weight: 600;
+    width: 200px;
+    margin: auto;
+}
+
+.hours {
+    font-size: large;
+    font-weight: 600;
+    width: 100px;
+    margin: auto;
+}
+
+.days {
+    font-size: large;
+    font-weight: 600;
+    width: 100px;
+    margin: auto;
+}

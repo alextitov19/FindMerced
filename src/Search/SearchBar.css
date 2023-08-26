@@ -1,3 +1,39 @@
+.search-inner {
+  margin: 10px;
+}
+
 .dropdown div {
-    margin: auto;
+  margin-inline: auto;
+}
+
+.dropdown-header {
+  display: flex;
+  flex-direction: row;
+  font-size: 20px;
+  padding: 5px;
+  width: 600px;
+}
+
+.nickname {
+  font-size: large;
+  font-weight: 600;
+  width: 100px;
+}
+
+.location {
+  font-size: large;
+  font-weight: 600;
+  width: 200px;
+}
+
+.hours {
+  font-size: large;
+  font-weight: 600;
+  width: 100px;
+}
+
+.days {
+  font-size: large;
+  font-weight: 600;
+  width: 100px;
 }

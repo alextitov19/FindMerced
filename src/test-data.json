@@ -3,8 +3,22 @@
         "building": "Granite Pass",
         "room": "171",
         "nickname": "CatCard",
-        "hours": "9AM-4PM",
-        "days": "MTWTFXX"
+        "hours": "9AM-4PM 10AM-2PM",
+        "days": "Mon-Fri Sat-Sun"
+    },
+    {
+        "building": "Granite Pass",
+        "room": "172",
+        "nickname": "Conference Room",
+        "hours": "9AM-4PM 10AM-2PM",
+        "days": "Mon-Fri Sat-Sun"
+    },
+    {
+        "building": "Granite Pass",
+        "room": "173",
+        "nickname": "Conference Room",
+        "hours": "9AM-4PM 10AM-2PM",
+        "days": "Mon-Fri Sat-Sun"
     },
     {
         "building": "Sentinel Rock",

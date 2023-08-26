@@ -20,7 +20,14 @@ const SearchBar = () => {
             <input type='text' value={value} onChange={onChange} />
             <button onClick={() => onSearch(value)}> Search </button>
         </div>
+
         <div className='dropdown'>
+            {/* <div className='dropdown-header'>
+                <div className='nickname'>Nickname</div>
+                <div className='location'>Location</div>
+                <div className='hours'>Hours</div>
+                <div className='days'>Days</div>
+            </div> */}
             {data.filter(item => {
                 const searchTerm = value.toLowerCase();
                 const building = item.building.toLowerCase();
