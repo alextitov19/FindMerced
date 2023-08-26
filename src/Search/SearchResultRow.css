@@ -1,0 +1,14 @@
+.row {
+    display: flex;
+    flex-direction: row;
+    font-size: 20px;
+    padding: 5px;
+    width: 800px;
+}
+
+.nickname {
+    font-size: large;
+    font-weight: 600;
+}
+
+.building {}

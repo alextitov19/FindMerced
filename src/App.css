@@ -1,3 +1,11 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: rgb(194, 218, 255);
+}
+
 .App {
   text-align: center;
 }
@@ -32,19 +40,8 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
-}
-
-.dropdown div {
-  margin: auto;
-}
-
-.dropdown-row {
-  display: flex;
-  flex-direction: row;
-  font-size: 20px;
-  padding: 5px;
-  width: 600px;
 }
