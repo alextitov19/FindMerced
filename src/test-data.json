@@ -1,0 +1,14 @@
+[
+    {
+        "building": "Granite Pass",
+        "room": "171",
+        "hours": "9AM-4PM",
+        "days": "MTWTFXX"
+    },
+    {
+        "building": "Sentinel Rock",
+        "room": "288",
+        "hours": "11AM-8PM",
+        "days": "MXXTFXX"
+    }
+]
