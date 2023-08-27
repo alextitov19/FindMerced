@@ -22,7 +22,7 @@ const Map = () => {
                     zoom={16}
                     options={{ mapId: "bee90f6129aa635c" }}
                 >
-                    <Marker position={{ lat: 37.363577, lng: -120.424730 }} />
+                    <Marker position={{ lat: 37.363577, lng: -120.424730 }} label={"CatCard Office"} />
                     <Marker position={{ lat: 37.364577, lng: -120.424730 }} />
 
                 </GoogleMap>
