@@ -37,15 +37,7 @@ const SearchBar = () => {
         </div>
 
         <div className='dropdown'>
-            {/* <div className='dropdown-header'>
-                <div className='nickname'>Nickname</div>
-                <div className='location'>Location</div>
-                <div className='hours'>Hours</div>
-                <div className='days'>Days</div>
-            </div> */}
             {
-
-
                 offices.map(item => SearchResultRow(item))}
         </div>
     </div>);

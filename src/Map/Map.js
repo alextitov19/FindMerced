@@ -1,4 +1,4 @@
-import { GoogleMap, Marker, useLoadScript } from "@react-google-maps/api";
+import { GoogleMap, MarkerF, useLoadScript } from "@react-google-maps/api";
 import { useState, useEffect } from "react";
 import "./Map.css";
 
@@ -47,8 +47,8 @@ const Map = () => {
                     zoom={16}
                     options={{ mapId: "bee90f6129aa635c" }}
                 >
-                    <Marker position={{ lat: 37.363577, lng: -120.424730 }} label={"CatCard Office"} />
-                    <Marker position={{ lat: lat, lng: lng }} icon={"http://maps.google.com/mapfiles/ms/icons/blue-dot.png"} />
+                    <MarkerF position={{ lat: 37.363577, lng: -120.424730 }} label={"CatCard Office"} />
+                    <MarkerF position={{ lat: lat, lng: lng }} icon={"http://maps.google.com/mapfiles/ms/icons/blue-dot.png"} />
                 </GoogleMap>
             )}
         </div>
