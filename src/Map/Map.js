@@ -8,17 +8,17 @@ const Map = () => {
         googleMapsApiKey: "AIzaSyB0pclggmDHDuKDKs4-2N5_eFUYGxAt7KA",
     });
 
-    const center = useMemo(() => ({ lat: 18.52043, lng: 73.856743 }), []);
+    const center = useMemo(() => ({ lat: 37.363577, lng: -120.424730 }), []);
 
     return (
-        <div className="map">
+        <div>
             {!isLoaded ? (
                 <h1>Loading map...</h1>
             ) : (
                 <GoogleMap
                     mapContainerClassName="map-container"
                     center={center}
-                    zoom={100}
+                    zoom={16}
                 />
             )}
         </div>
