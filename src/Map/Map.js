@@ -1,5 +1,5 @@
 import { GoogleMap, Marker, useLoadScript } from "@react-google-maps/api";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./Map.css";
 
 const Map = () => {
@@ -13,11 +13,6 @@ const Map = () => {
     const [lng, setLng] = useState(-120.424730);
 
 
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(success, error);
-    } else {
-        console.log("Geolocation not supported");
-    }
 
     function success(position) {
         setLat(position.coords.latitude);
@@ -28,6 +23,18 @@ const Map = () => {
     function error() {
         console.log("Unable to retrieve your location");
     }
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(success, error);
+            } else {
+                console.log("Geolocation not supported");
+            }
+        }, 1000);
+
+        return () => clearInterval(interval);
+    }, []);
 
     return (
         <div>
@@ -41,8 +48,7 @@ const Map = () => {
                     options={{ mapId: "bee90f6129aa635c" }}
                 >
                     <Marker position={{ lat: 37.363577, lng: -120.424730 }} label={"CatCard Office"} />
-                    <Marker position={{ lat: 37.364577, lng: -120.424730 }} />
-
+                    <Marker position={{ lat: lat, lng: lng }} icon={"http://maps.google.com/mapfiles/ms/icons/blue-dot.png"} />
                 </GoogleMap>
             )}
         </div>
