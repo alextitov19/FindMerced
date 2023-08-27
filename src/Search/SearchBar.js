@@ -9,11 +9,26 @@ const SearchBar = () => {
 
     const onChange = (event) => {
         setValue(event.target.value);
+        setOffice(data.filter(item => {
+            const searchTerm = event.target.value.toLowerCase();
+            const building = item.building.toLowerCase();
+            const room = item.room.toLowerCase();
+            const nickname = item.nickname.toLowerCase();
+            var flag = false
+            if (building.startsWith(searchTerm)) {
+                flag = true;
+            }
+            if (room.startsWith(searchTerm)) {
+                flag = true;
+            }
+            if (nickname.startsWith(searchTerm)) {
+                flag = true;
+            }
+            return searchTerm && flag;
+        }));
     }
 
-    const onSearch = (searchTerm) => {
-        console.log('search ', searchTerm);
-    }
+    const [offices, setOffice] = useState([]);
 
     return (<div className="search-container">
         <div className="search-inner">
@@ -28,24 +43,10 @@ const SearchBar = () => {
                 <div className='hours'>Hours</div>
                 <div className='days'>Days</div>
             </div> */}
-            {data.filter(item => {
-                const searchTerm = value.toLowerCase();
-                const building = item.building.toLowerCase();
-                const room = item.room.toLowerCase();
-                const nickname = item.nickname.toLowerCase();
-                var flag = false
-                if (building.startsWith(searchTerm)) {
-                    flag = true;
-                }
-                if (room.startsWith(searchTerm)) {
-                    flag = true;
-                }
-                if (nickname.startsWith(searchTerm)) {
-                    flag = true;
-                }
-                return searchTerm && flag;
-            })
-                .map(item => SearchResultRow(item))}
+            {
+
+
+                offices.map(item => SearchResultRow(item))}
         </div>
     </div>);
 
