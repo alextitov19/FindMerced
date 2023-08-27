@@ -8,7 +8,10 @@ function App() {
     <div className="App">
       <h1>Find Merced</h1>
       <SearchBar />
-      <Map />
+      <Map
+        mlat={37.363577}
+        mlng={-120.424730}
+      />
     </div>
   );
 }

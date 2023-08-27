@@ -2,7 +2,7 @@ import { GoogleMap, MarkerF, useLoadScript } from "@react-google-maps/api";
 import { useState, useEffect } from "react";
 import "./Map.css";
 
-const Map = () => {
+const Map = ({ mlat, mlng }) => {
 
     const { isLoaded } = useLoadScript({
         googleMapsApiKey: "AIzaSyB0pclggmDHDuKDKs4-2N5_eFUYGxAt7KA",
@@ -47,7 +47,7 @@ const Map = () => {
                     zoom={16}
                     options={{ mapId: "bee90f6129aa635c" }}
                 >
-                    <MarkerF position={{ lat: 37.363577, lng: -120.424730 }} label={"CatCard Office"} />
+                    <MarkerF position={{ lat: mlat, lng: mlng }} label={"CatCard Office"} />
                     <MarkerF position={{ lat: lat, lng: lng }} icon={"http://maps.google.com/mapfiles/ms/icons/blue-dot.png"} />
                 </GoogleMap>
             )}
