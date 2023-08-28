@@ -3,7 +3,7 @@ import './SearchBar.css';
 import SearchResultRow from './SearchResultRow.js'
 var data = require("../test-data.json");
 
-const SearchBar = () => {
+const SearchBar = (updateMarker) => {
 
     const [value, setValue] = useState('');
 
@@ -36,7 +36,8 @@ const SearchBar = () => {
 
     function onClickRow(office) {
         setValue(office.nickname);
-        filterData(office.nickname)
+        filterData(office.nickname);
+        updateMarker(office.lat, office.lng, office.nickname);
         console.log(office.nickname);
     }
 

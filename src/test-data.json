@@ -4,27 +4,35 @@
         "room": "171",
         "nickname": "CatCard",
         "hours": "9AM-4PM 10AM-2PM",
-        "days": "Mon-Fri Sat-Sun"
+        "days": "Mon-Fri Sat-Sun",
+        "lat": 37.363577,
+        "lng": -120.424730
     },
     {
         "building": "Granite Pass",
         "room": "172",
         "nickname": "Conference Room",
         "hours": "9AM-4PM 10AM-2PM",
-        "days": "Mon-Fri Sat-Sun"
+        "days": "Mon-Fri Sat-Sun",
+        "lat": 37.364577,
+        "lng": -120.424730
     },
     {
         "building": "Granite Pass",
         "room": "173",
         "nickname": "Conference Room",
         "hours": "9AM-4PM 10AM-2PM",
-        "days": "Mon-Fri Sat-Sun"
+        "days": "Mon-Fri Sat-Sun",
+        "lat": 37.362577,
+        "lng": -120.424730
     },
     {
         "building": "Sentinel Rock",
         "room": "288",
         "nickname": "SR288",
         "hours": "11AM-8PM",
-        "days": "MXXTFXX"
+        "days": "MXXTFXX",
+        "lat": 37.363577,
+        "lng": -120.425730
     }
 ]
