@@ -9,8 +9,12 @@ const SearchBar = () => {
 
     const onChange = (event) => {
         setValue(event.target.value);
+        filterData(event.target.value);
+    }
+
+    const filterData = (s) => {
         setOffice(data.filter(item => {
-            const searchTerm = event.target.value.toLowerCase();
+            const searchTerm = s.toLowerCase();
             const building = item.building.toLowerCase();
             const room = item.room.toLowerCase();
             const nickname = item.nickname.toLowerCase();
@@ -31,6 +35,8 @@ const SearchBar = () => {
     const [offices, setOffice] = useState([]);
 
     function onClickRow(office) {
+        setValue(office.nickname);
+        filterData(office.nickname)
         console.log(office.nickname);
     }
 
