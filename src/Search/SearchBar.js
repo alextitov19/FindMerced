@@ -30,6 +30,10 @@ const SearchBar = () => {
 
     const [offices, setOffice] = useState([]);
 
+    function onClickRow(office) {
+        console.log(office.nickname);
+    }
+
     return (<div className="search-container">
         <div className="search-inner">
             <input type='text' placeholder='Search...' value={value} onChange={onChange} />
@@ -38,7 +42,8 @@ const SearchBar = () => {
 
         <div className='dropdown'>
             {
-                offices.map(item => SearchResultRow(item))}
+                offices.map(item => SearchResultRow(item, onClickRow))
+            }
         </div>
     </div>);
 

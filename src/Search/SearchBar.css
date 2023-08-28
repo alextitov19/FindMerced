@@ -69,3 +69,12 @@ input[type=text]:focus {
   font-weight: 600;
   width: 100px;
 }
+
+button {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+}
