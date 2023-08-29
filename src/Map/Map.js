@@ -1,4 +1,4 @@
-import { GoogleMap, MarkerF, useLoadScript } from "@react-google-maps/api";
+import { GoogleMap, MarkerF, useLoadScript, DistanceMatrixService } from "@react-google-maps/api";
 import { useState, useEffect } from "react";
 import "./Map.css";
 
@@ -38,7 +38,6 @@ function Map(props) {
 
     return (
         <div>
-            <p>{props.text}</p>
             {!isLoaded ? (
                 <h1>Loading map...</h1>
             ) : (
@@ -50,6 +49,17 @@ function Map(props) {
                 >
                     {props.marker}
                     <MarkerF position={{ lat: lat, lng: lng }} icon={"http://maps.google.com/mapfiles/ms/icons/blue-dot.png"} />
+                    <DistanceMatrixService
+                        options={{
+                            destinations: [{ lat: 37, lng: -120 }],
+                            origins: [{ lat: 37.1, lng: -120 }],
+                            travelMode: "WALKING",
+                        }}
+                        callback={(response) => {
+                            console.log("Got resp");
+                            console.log(response);
+                        }}
+                    />
                 </GoogleMap>
             )}
         </div>
