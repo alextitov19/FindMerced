@@ -2,7 +2,7 @@ import { GoogleMap, MarkerF, useLoadScript } from "@react-google-maps/api";
 import { useState, useEffect } from "react";
 import "./Map.css";
 
-const Map = ({ mlat, mlng, mtext }) => {
+function Map(props) {
 
     const { isLoaded } = useLoadScript({
         googleMapsApiKey: "AIzaSyB0pclggmDHDuKDKs4-2N5_eFUYGxAt7KA",
@@ -38,6 +38,7 @@ const Map = ({ mlat, mlng, mtext }) => {
 
     return (
         <div>
+            <p>{props.text}</p>
             {!isLoaded ? (
                 <h1>Loading map...</h1>
             ) : (
@@ -47,7 +48,7 @@ const Map = ({ mlat, mlng, mtext }) => {
                     zoom={16}
                     options={{ mapId: "bee90f6129aa635c" }}
                 >
-                    <MarkerF position={{ lat: mlat, lng: mlng }} label={mtext} />
+                    {props.marker}
                     <MarkerF position={{ lat: lat, lng: lng }} icon={"http://maps.google.com/mapfiles/ms/icons/blue-dot.png"} />
                 </GoogleMap>
             )}

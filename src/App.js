@@ -2,29 +2,26 @@ import './App.css';
 import SearchBar from './Search/SearchBar';
 import Map from './Map/Map'
 import { useState } from 'react';
+import { MarkerF } from '@react-google-maps/api';
 
 function App() {
 
-  const [lat, setLat] = useState(37.363577);
-  const [lng, setLng] = useState(-120.424730);
-  const [text, setText] = useState("Temp");
+  const [map, setMap] = useState(<Map
+  />);
 
   function updateMarker(lat, lng, text) {
-    setLat(lat);
-    setLng(lng);
-    setText(text);
-    console.log("Set state")
+    console.log(text)
+    const myMarker = <MarkerF position={{ lat: lat, lng: lng }} />
+    setMap(<Map
+      marker={myMarker}
+    />)
   }
 
   return (
     <div className="App">
-      <h1>Find Merced</h1>
+      <h1>CatLynx</h1>
       {SearchBar(updateMarker)}
-      <Map
-        mlat={lat}
-        mlng={lng}
-        mtext={text}
-      />
+      {map}
     </div>
   );
 }
