@@ -74,7 +74,7 @@ function Map(props) {
                     options={{ mapId: "bee90f6129aa635c" }}
                 >
                     {props.marker}
-                    <MarkerF position={{ lat: lat, lng: lng }} icon={"http://maps.google.com/mapfiles/ms/icons/blue-dot.png"} />
+                    <MarkerF position={{ lat: lat, lng: lng }} icon={"https://maps.gstatic.com/mapfiles/ms2/micons/man.png"} />
                     {props.marker ? <DistanceMatrixService
                         options={{
                             destinations: [{ lat: parseFloat(props.lat), lng: parseFloat(props.lng) }],
