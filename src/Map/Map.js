@@ -58,8 +58,12 @@ function Map(props) {
 
     return (
         <div>
-            <div>{distance}</div>
-            <div>{duration}</div>
+            {props.marker ?
+                <div className="description">
+                    <div className="distance">{distance}</div>
+                    <div className="duration">{duration}</div>
+                </div> : null}
+
             {!isLoaded ? (
                 <h1>Loading map...</h1>
             ) : (
@@ -83,8 +87,6 @@ function Map(props) {
                             console.log(response.rows[0].elements[0].duration.text);
                             setDistance(response.rows[0].elements[0].distance.text);
                             setDuration(response.rows[0].elements[0].duration.text);
-                            // console.log(response);
-
                         }}
                     /> : null}
 
