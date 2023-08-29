@@ -14,6 +14,8 @@ function App() {
     const myMarker = <MarkerF position={{ lat: lat, lng: lng }} />
     setMap(<Map
       marker={myMarker}
+      lat={lat}
+      lng={lng}
     />)
   }
 
