@@ -57,7 +57,9 @@ function Map(props) {
                         }}
                         callback={(response) => {
                             console.log("Got resp");
-                            console.log(response);
+                            console.log(response.rows[0].elements[0].distance.text);
+                            console.log(response.rows[0].elements[0].duration.text);
+
                         }}
                     />
                 </GoogleMap>
