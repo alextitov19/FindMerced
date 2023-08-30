@@ -1,4 +1,4 @@
-import { GoogleMap, MarkerF, useLoadScript, DistanceMatrixService } from "@react-google-maps/api";
+import { GoogleMap, MarkerF, useLoadScript, DistanceMatrixService, DirectionsRenderer } from "@react-google-maps/api";
 import { useState, useEffect } from "react";
 import "./Map.css";
 
@@ -15,6 +15,9 @@ function Map(props) {
     const [distance, setDistance] = useState("")
     const [duration, setDuration] = useState("")
 
+    const google = window.google;
+
+    const [directions, setDirections] = useState()
 
 
     function success(position) {
@@ -39,25 +42,36 @@ function Map(props) {
         return () => clearInterval(interval);
     }, []);
 
-    function calculateDistance() {
-        const dms = <DistanceMatrixService
-            options={{
-                destinations: [{ lat: parseFloat(props.lat), lng: parseFloat(props.lng) }],
-                origins: [{ lat: lat, lng: lng }],
-                travelMode: "WALKING",
-            }}
-            callback={(response) => {
-                console.log("Got resp");
-                console.log(response.rows[0].elements[0].distance.text);
-                console.log(response.rows[0].elements[0].duration.text);
-                // console.log(response);
 
-            }}
-        />
+    function getDirections() {
+        const directionsService = new google.maps.DirectionsService();
+
+        const origin = { lat: lat, lng: lng };
+        const destination = { lat: parseFloat(props.lat), lng: parseFloat(props.lng) };
+        directionsService.route(
+            {
+                origin: origin,
+                destination: destination,
+                travelMode: google.maps.TravelMode.WALKING
+            },
+            (result, status) => {
+                if (status === google.maps.DirectionsStatus.OK) {
+                    console.log(`Success ${result}`);
+                    setDirections(result);
+
+                } else {
+                    console.error(`error fetching directions ${result}`);
+                }
+            }
+        );
     }
+
+
+
 
     return (
         <div>
+            <div onClick={getDirections} >Get Directions</div>
             {props.marker ?
                 <div className="description">
                     <div className="distance">{distance}</div>
@@ -88,6 +102,9 @@ function Map(props) {
                             setDistance(response.rows[0].elements[0].distance.text);
                             setDuration(response.rows[0].elements[0].duration.text);
                         }}
+                    /> : null}
+                    {props.marker ? <DirectionsRenderer
+                        directions={directions}
                     /> : null}
 
                 </GoogleMap>
