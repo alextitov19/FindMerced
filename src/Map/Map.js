@@ -71,11 +71,14 @@ function Map(props) {
 
     return (
         <div>
-            <div onClick={getDirections} >Get Directions</div>
             {props.marker ?
                 <div className="description">
-                    <div className="distance">{distance}</div>
-                    <div className="duration">{duration}</div>
+                    <div className="button-85" onClick={getDirections} >
+                        <div className="distance">{distance}</div>
+                        Get Directions
+                        <div className="duration">{duration}</div>
+
+                    </div>
                 </div> : null}
 
             {!isLoaded ? (
