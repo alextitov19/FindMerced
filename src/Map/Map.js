@@ -6,7 +6,7 @@ function Map(props) {
 
     const { isLoaded } = useLoadScript({
         googleMapsApiKey: "AIzaSyB0pclggmDHDuKDKs4-2N5_eFUYGxAt7KA",
-        mapIds: ["bee90f6129aa635c"]
+        mapIds: ["bee90f6129aa635c"],
     });
 
     const [lat, setLat] = useState(37.363577);

@@ -25,7 +25,7 @@
 
 /* CSS */
 .button-85 {
-    padding: 0.6em 2em;
+    padding: 0.6em 1em;
     border: none;
     outline: none;
     color: rgb(255, 255, 255);
@@ -37,7 +37,7 @@
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
-    width: 300px;
+    width: 350px;
     text-align: center;
     margin: auto;
     margin-top: 20px;
