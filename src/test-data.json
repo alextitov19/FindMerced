@@ -29,10 +29,19 @@
     {
         "building": "Sentinel Rock",
         "room": "288",
-        "nickname": "SR288",
+        "nickname": "SR-288",
         "hours": "11AM-8PM",
         "days": "MXXTFXX",
         "lat": 37.363577,
         "lng": -120.425730
+    },
+    {
+        "building": "Classroom & Offices Building 2",
+        "room": "120",
+        "nickname": "COB2-120",
+        "hours": "N/A",
+        "days": "MTWTFXX",
+        "lat": 37.366724,
+        "lng": -120.424772
     }
 ]
