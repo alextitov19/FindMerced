@@ -56,6 +56,11 @@ const SearchBar = (updateMarker) => {
 
     return (<div className="search-container">
         <div className="search-inner">
+            {listening ?
+                < i class="bi bi-mic-fill" onClick={SpeechRecognition.stopListening}></i>
+                :
+                <i class="bi bi-mic-mute-fill" onClick={SpeechRecognition.startListening}></i>
+            }
             <input type='text' placeholder='Search...' value={value} onChange={onChange} />
             {/* <button className='search-button' onClick={() => onSearch(value)}> Search </button> */}
         </div>
@@ -67,11 +72,7 @@ const SearchBar = (updateMarker) => {
         </div>
 
         <div>
-            {listening ?
-                < i class="bi bi-mic-fill" onClick={SpeechRecognition.stopListening}></i>
-                :
-                <i class="bi bi-mic-mute-fill" onClick={SpeechRecognition.startListening}></i>
-            }
+
             <button onClick={resetTranscript}>Reset</button>
             <p>{transcript}</p>
         </div>
