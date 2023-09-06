@@ -78,3 +78,7 @@ button {
   overflow: hidden;
   outline: none;
 }
+
+.bi {
+  font-size: 30px;
+}

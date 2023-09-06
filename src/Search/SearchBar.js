@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import './SearchBar.css';
 import SearchResultRow from './SearchResultRow.js'
+import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
+
 var data = require("../test-data.json");
 
 const SearchBar = (updateMarker) => {
@@ -34,6 +36,17 @@ const SearchBar = (updateMarker) => {
 
     const [offices, setOffice] = useState([]);
 
+    const {
+        transcript,
+        listening,
+        resetTranscript,
+        browserSupportsSpeechRecognition
+    } = useSpeechRecognition();
+
+    if (!browserSupportsSpeechRecognition) {
+        console.log("Browser doesn't support speech recognition.");
+    }
+
     function onClickRow(office) {
         setValue(office.nickname);
         filterData(office.nickname);
@@ -51,6 +64,16 @@ const SearchBar = (updateMarker) => {
             {
                 offices.map(item => SearchResultRow(item, onClickRow))
             }
+        </div>
+
+        <div>
+            {listening ?
+                < i class="bi bi-mic-fill" onClick={SpeechRecognition.stopListening}></i>
+                :
+                <i class="bi bi-mic-mute-fill" onClick={SpeechRecognition.startListening}></i>
+            }
+            <button onClick={resetTranscript}>Reset</button>
+            <p>{transcript}</p>
         </div>
     </div>);
 
