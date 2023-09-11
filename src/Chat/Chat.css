@@ -1,0 +1,17 @@
+.chat-div {
+    width: 30vw;
+    height: 80vh;
+    background-color: white;
+    margin: auto;
+    border-radius: 25px;
+}
+
+h2 {
+    padding-top: 10px;
+    color: grey;
+}
+
+.body {
+    height: 60vh;
+    overflow-y: auto;
+}

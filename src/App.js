@@ -3,6 +3,7 @@ import SearchBar from './Search/SearchBar';
 import Map from './Map/Map'
 import { useState } from 'react';
 import { MarkerF } from '@react-google-maps/api';
+import Chat from './Chat/Chat';
 
 function App() {
 
@@ -21,7 +22,8 @@ function App() {
 
   return (
     <div className="App">
-      <h1>CatLynx</h1>
+      <h1>ALynx</h1>
+      <Chat />
       {SearchBar(updateMarker)}
       {map}
     </div>
