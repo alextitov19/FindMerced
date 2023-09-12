@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./Chat.css";
-import MyChatMessage from "./MyChatMessage.js";
+import ChatMessage from "./ChatMessage.js";
 
 function Chat() {
   const [messages, setMessages] = useState([]);
@@ -15,12 +15,14 @@ function Chat() {
     var m = messages;
     m.push(value);
     setMessages(m);
-    setRenderedOutput(messages.map((item) => <MyChatMessage message={item} />));
+    setRenderedOutput(
+      messages.map((item) => <ChatMessage message={item} direction="right" />)
+    );
     console.log(messages);
   }
 
   var [renderedOutput, setRenderedOutput] = useState(
-    messages.map((item) => <MyChatMessage message={item} />)
+    messages.map((item) => <ChatMessage message={item} direction="right" />)
   );
 
   return (
