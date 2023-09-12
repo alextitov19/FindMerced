@@ -72,7 +72,6 @@ const SearchBar = (updateMarker) => {
         </div>
 
         <div>
-
             <button onClick={resetTranscript}>Reset</button>
             <p>{transcript}</p>
         </div>
