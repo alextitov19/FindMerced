@@ -51,7 +51,7 @@ function Map(props) {
         directionsService.route(
             {
                 origin: origin,
-                destination: destination,
+                destination: "Merced, CA",
                 travelMode: google.maps.TravelMode.WALKING
             },
             (result, status) => {
@@ -71,7 +71,6 @@ function Map(props) {
 
     return (
         <div>
-            {props.marker ?
                 <div className="description">
                     <div className="button-85" onClick={getDirections} >
                         <div className="distance">{distance}</div>
@@ -79,7 +78,7 @@ function Map(props) {
                         <div className="duration">{duration}</div>
 
                     </div>
-                </div> : null}
+                </div>
 
             {!isLoaded ? (
                 <h1>Loading map...</h1>
@@ -92,9 +91,9 @@ function Map(props) {
                 >
                     {props.marker}
                     <MarkerF position={{ lat: lat, lng: lng }} icon={"https://maps.gstatic.com/mapfiles/ms2/micons/man.png"} />
-                    {props.marker ? <DistanceMatrixService
+                     <DistanceMatrixService
                         options={{
-                            destinations: [{ lat: parseFloat(props.lat), lng: parseFloat(props.lng) }],
+                            destinations: props.destination,
                             origins: [{ lat: lat, lng: lng }],
                             travelMode: "WALKING",
                         }}
@@ -105,10 +104,10 @@ function Map(props) {
                             setDistance(response.rows[0].elements[0].distance.text);
                             setDuration(response.rows[0].elements[0].duration.text);
                         }}
-                    /> : null}
-                    {props.marker ? <DirectionsRenderer
+                    />
+                     <DirectionsRenderer
                         directions={directions}
-                    /> : null}
+                    />
 
                 </GoogleMap>
 

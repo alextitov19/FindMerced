@@ -10,13 +10,10 @@ function App() {
   const [map, setMap] = useState(<Map
   />);
 
-  function updateMarker(lat, lng, text) {
+  function updateMarker(text) {
     console.log(text)
-    const myMarker = <MarkerF position={{ lat: lat, lng: lng }} />
     setMap(<Map
-      marker={myMarker}
-      lat={lat}
-      lng={lng}
+      destination={text}
     />)
   }
 

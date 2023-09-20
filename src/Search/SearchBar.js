@@ -12,6 +12,7 @@ const SearchBar = (updateMarker) => {
     const onChange = (event) => {
         setValue(event.target.value);
         filterData(event.target.value);
+        updateMarker(event.target.value);
     }
 
     const filterData = (s) => {
