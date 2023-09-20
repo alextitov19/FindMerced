@@ -51,7 +51,7 @@ function Map(props) {
         directionsService.route(
             {
                 origin: origin,
-                destination: "Merced, CA",
+                destination: props.destination,
                 travelMode: google.maps.TravelMode.WALKING
             },
             (result, status) => {
