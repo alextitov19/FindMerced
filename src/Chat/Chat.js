@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./Chat.css";
 import ChatMessage from "./ChatMessage.js";
 
-function Chat() {
+const Chat = (updateMarker) => {
   const [messages, setMessages] = useState([
     {
       message:
@@ -11,7 +11,7 @@ function Chat() {
     },
     {
       message:
-        "Example: \"Give me directions to the CatCard office\"",
+        "Example: \"Give me directions to CatCard office\"",
       direction: "left",
     },
   ]);
@@ -30,6 +30,9 @@ function Chat() {
       messages.map((item) => <ChatMessage message={item.message} direction={item.direction} />)
     );
     console.log(messages);
+
+    updateMarker(value)
+
     setValue("")
   }
 

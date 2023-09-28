@@ -20,8 +20,7 @@ function App() {
   return (
     <div className="App">
       <h1>ALynx</h1>
-      <Chat />
-      {SearchBar(updateMarker)}
+      {Chat(updateMarker)}
       {map}
     </div>
   );
