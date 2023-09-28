@@ -30,6 +30,7 @@ function Chat() {
       messages.map((item) => <ChatMessage message={item.message} direction={item.direction} />)
     );
     console.log(messages);
+    setValue("")
   }
 
   var [renderedOutput, setRenderedOutput] = useState(
