@@ -1,17 +1,14 @@
 import { useState } from "react";
 import "./Chat.css";
 import ChatMessage from "./ChatMessage.js";
+import axios from "axios";
+
 
 const Chat = (updateMarker) => {
   const [messages, setMessages] = useState([
     {
       message:
         "Hello! I am Alynx, your personal assistant. You can ask me for directions or any FAQs.",
-      direction: "left",
-    },
-    {
-      message:
-        "Example: \"Give me directions to CatCard office\"",
       direction: "left",
     },
   ]);
@@ -31,9 +28,44 @@ const Chat = (updateMarker) => {
     );
     console.log(messages);
 
+    sendMessageToServer();
+
+
     updateMarker(value)
 
     setValue("")
+
+    
+
+  }
+
+  function sendMessageToServer() {
+
+    axios.post("http://localhost:8080/chat", {
+      message: "Hello Chat",
+    });
+
+
+    // const requestOptions = {
+    //   method: "POST",
+    //   headers: { "Content-Type": "application/json" },
+    //   body: JSON.stringify({ message: value}),
+    // };
+    // fetch("http://localhost:8080/chat", requestOptions)
+    //   .then((response) => response.json())
+    //   .then((data) => this.setState({ postId: data.id }));
+
+    // fetch("http://localhost:8080/chat", {
+    //   method: "POST",
+    //   body: JSON.stringify({
+    //     message: msg,
+    //   }),
+    //   headers: {
+    //     "Content-type": "application/json; charset=UTF-8",
+    //   },
+    // })
+    //   .then((response) => response.json())
+    //   .then((json) => console.log(json));
   }
 
   var [renderedOutput, setRenderedOutput] = useState(
