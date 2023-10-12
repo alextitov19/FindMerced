@@ -41,9 +41,27 @@ const Chat = (updateMarker) => {
 
   function sendMessageToServer() {
 
-    axios.post("http://localhost:8080/chat", {
-      message: "Hello Chat",
-    });
+    axios
+      .post("http://localhost:8080/chat", {
+        message: value,
+      })
+      .then(
+        (response) => {
+          var s = response["data"];
+          console.log(s);
+          var m = messages;
+          m.push({ message: s, direction: "left" });
+          setMessages(m);
+          setRenderedOutput(
+            messages.map((item) => (
+              <ChatMessage message={item.message} direction={item.direction} />
+            ))
+          );
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
 
 
     // const requestOptions = {
