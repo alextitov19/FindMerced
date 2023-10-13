@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./Chat.css";
 import ChatMessage from "./ChatMessage.js";
 import axios from "axios";
@@ -18,12 +18,15 @@ const Chat = (updateMarker) => {
 
   const [value, setValue] = useState("");
 
+    const [recordTitle, setRecordTitle] = useState("RECORD");
+
   const {
     transcript,
     listening,
     resetTranscript,
     browserSupportsSpeechRecognition,
   } = useSpeechRecognition();
+
 
   const onChange = (event) => {
     setValue(event.target.value);
@@ -32,9 +35,11 @@ const Chat = (updateMarker) => {
   function clickedRecord() {
     if (listening == true) {
       SpeechRecognition.stopListening();
-      setValue(transcript)
+      setValue(transcript);
+      setRecordTitle("RECORD");
     } else {
       SpeechRecognition.startListening();
+      setRecordTitle("STOP")
     }
   } 
 
@@ -64,6 +69,9 @@ const Chat = (updateMarker) => {
       .then(
         (response) => {
           var s = response["data"];
+          const synth = window.speechSynthesis;
+          const u = new SpeechSynthesisUtterance(s);
+          synth.speak(u);
           console.log(s);
           var m = messages;
           m.push({ message: s, direction: "left" });
@@ -101,7 +109,7 @@ const Chat = (updateMarker) => {
           onChange={onChange}
         />
         <p class="footer-send-button-first" onClick={clickedRecord} value>
-          RECORD
+          {recordTitle}
         </p>
         <p class="footer-send-button" onClick={addMessage} value>
           SEND
