@@ -32,7 +32,7 @@
 }
 
 .body {
-    height: 72vh;
+    height: 65vh;
     overflow-y: auto;
     background-color: aliceblue;
      --rad: 20px;
