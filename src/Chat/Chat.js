@@ -96,7 +96,7 @@ const Chat = (updateMarker) => {
     <div className="button-85">
       <div className="header">
         <img src="profile.jpeg" className="profile-image" />
-        <p className="profile-name">ALynx</p>
+        <p className="profile-name">Alynx</p>
       </div>
       <div className="body">{renderedOutput}</div>
       <div className="footer">

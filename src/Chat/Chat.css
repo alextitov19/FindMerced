@@ -17,7 +17,7 @@
     width: 8vh;
     height: 8vh;
     border-radius: 4vh;
-    border: solid 2px yellow;
+    border: solid 2px #DAA900;
     margin-top: 5px;
     margin-left: auto;
     margin-right: 5px;
@@ -28,13 +28,13 @@
     margin-right: auto;
     margin-left: 5px;
     margin-top: 15px;
-    color: yellow;
+    color: #DAA900;
 }
 
 .body {
     height: 68vh;
     overflow-y: auto;
-    background-color: aliceblue;
+    background-color: rgb(43, 43, 43);
      --rad: 20px;
   --rad-sm: 3px;
   display: flex;
@@ -66,12 +66,13 @@
 }
 
 .footer-send-button {
-    font-size: 30px;
+    font-size: 20px;
     padding: 10px;
     border-radius: 60px;
     border: solid;
     margin: auto;
-    color: yellow;
+    margin-top: 5px;
+    color: #DAA900;
 }
 
 .button-85 {

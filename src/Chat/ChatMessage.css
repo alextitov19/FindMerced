@@ -9,7 +9,7 @@
       calc(var(--r) / -2) padding-box,
     radial-gradient(50% 50%, #000 98%, #0000 101%) 0 0 / var(--r) var(--r) space
       padding-box;
-  background: linear-gradient(135deg, #fe6d00, #1384c5) border-box;
+  background: linear-gradient(135deg, #0F2D52, #DAA900) border-box;
   color: #fff;
   margin-top: 10px;
   max-width: 75%;
