@@ -66,13 +66,19 @@
 }
 
 .footer-send-button {
-    font-size: 20px;
     padding: 10px;
-    border-radius: 60px;
-    border: solid;
-    margin: auto;
+    margin-top: 5px;
+    margin-right: 0;
+    color: #DAA900;
+    font-weight: bold;
+}
+
+.footer-send-button-first {
+    padding: 10px;
+    margin-left: auto;
     margin-top: 5px;
     color: #DAA900;
+        font-weight: bold;
 }
 
 .button-85 {
