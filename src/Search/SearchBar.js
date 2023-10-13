@@ -62,7 +62,7 @@ const SearchBar = (updateMarker) => {
                 :
                 <i class="bi bi-mic-mute-fill" onClick={SpeechRecognition.startListening}></i>
             }
-            <input type='text' placeholder='Search...' value={value} onChange={onChange} />
+            <input type='text' placeholder='' value={value} onChange={onChange} />
             {/* <button className='search-button' onClick={() => onSearch(value)}> Search </button> */}
         </div>
 

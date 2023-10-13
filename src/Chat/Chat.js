@@ -102,7 +102,7 @@ const Chat = (updateMarker) => {
       <div className="footer">
         <input
           type="text"
-          placeholder="Search..."
+          placeholder="Ask me a question..."
           value={value}
           onChange={onChange}
         />
