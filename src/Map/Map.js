@@ -71,15 +71,6 @@ function Map(props) {
 
     return (
         <div>
-                <div className="description">
-                    <div className="button-85" onClick={getDirections} >
-                        <div className="distance">{distance}</div>
-                        Get Directions
-                        <div className="duration">{duration}</div>
-
-                    </div>
-                </div>
-
             {!isLoaded ? (
                 <h1>Loading map...</h1>
             ) : (

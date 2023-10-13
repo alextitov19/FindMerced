@@ -19,7 +19,6 @@ function App() {
 
   return (
     <div className="App">
-      <h1>ALynx</h1>
       {Chat(updateMarker)}
       {map}
     </div>

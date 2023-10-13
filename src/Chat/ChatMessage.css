@@ -12,6 +12,7 @@
   background: linear-gradient(135deg, #fe6d00, #1384c5) border-box;
   color: #fff;
   margin-top: 10px;
+  max-width: 75%;
 }
 .left {
     text-align: left;
@@ -19,8 +20,6 @@
   border-left: var(--t) solid #0000;
   margin-right: var(--t);
   place-self: start;
-  margin-right: 8vw;
-  display: inline-block;
 }
 .right {
   text-align: right;
@@ -28,7 +27,5 @@
   border-right: var(--t) solid #0000;
   margin-left: var(--t);
   place-self: end;
-  margin-left: 8vw;
-  display: inline-block;
 }
 

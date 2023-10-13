@@ -93,7 +93,7 @@ const Chat = (updateMarker) => {
   );
 
   return (
-    <div className="chat-div">
+    <div className="button-85">
       <div className="header">
         <img src="profile.jpeg" className="profile-image" />
         <p className="profile-name">ALynx</p>
