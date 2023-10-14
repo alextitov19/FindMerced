@@ -156,3 +156,10 @@
     top: 0;
     border-radius: 10px;
 }
+
+.dropdown {
+    background: none;
+    font-size: larger;
+    color: #DAA900;
+    border: none;
+}

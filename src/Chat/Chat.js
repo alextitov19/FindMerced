@@ -20,6 +20,10 @@ const Chat = (updateMarker) => {
 
     const [recordTitle, setRecordTitle] = useState("RECORD");
 
+
+  const [language, setLanguage] = useState("English");
+  const [languageCode, setLanguageCode] = useState("en-US");
+
   const {
     transcript,
     listening,
@@ -37,8 +41,8 @@ const Chat = (updateMarker) => {
       SpeechRecognition.stopListening();
       setValue(transcript);
       setRecordTitle("RECORD");
-    } else {
-      SpeechRecognition.startListening();
+    } else {      
+      SpeechRecognition.startListening({ language: languageCode });
       setRecordTitle("STOP")
     }
   } 
@@ -71,6 +75,7 @@ const Chat = (updateMarker) => {
           var s = response["data"];
           const synth = window.speechSynthesis;
           const u = new SpeechSynthesisUtterance(s);
+          u.lang = languageCode;
           synth.speak(u);
           console.log(s);
           var m = messages;
@@ -94,11 +99,33 @@ const Chat = (updateMarker) => {
     ))
   );
 
+
+  const handleLanguageChange = (event) => {
+    setLanguage(event.target.value);
+    switch (event.target.value) {
+      case "english":
+        setLanguageCode("en-US");
+        break;
+      case "spanish":
+        setLanguageCode("es-US");
+        break;
+      case "chinese":
+        setLanguageCode("zh-CN");
+        console.log("chinese")
+        break;
+    }
+  };
+
   return (
     <div className="button-85">
       <div className="header">
         <img src="profile.jpeg" className="profile-image" />
         <p className="profile-name">Alynx</p>
+        <select className="dropdown" value={language} onChange={handleLanguageChange}>
+          <option value="english">English</option>
+          <option value="spanish">Spanish</option>
+          <option value="chinese">Chinese</option>
+        </select>
       </div>
       <div className="body">{renderedOutput}</div>
       <div className="footer">
