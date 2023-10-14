@@ -105,15 +105,75 @@ const Chat = (updateMarker) => {
     switch (event.target.value) {
       case "english":
         setLanguageCode("en-US");
+        var m = messages;
+        m.push({
+          message:
+            "Hello! I am Alynx, your personal assistant. You can ask me for directions or any FAQs.",
+          direction: "left",
+        });
+        setMessages(m);
+        setRenderedOutput(
+          messages.map((item) => (
+            <ChatMessage message={item.message} direction={item.direction} />
+          ))
+        );
         break;
       case "spanish":
         setLanguageCode("es-US");
+        var m = messages;
+        m.push({
+          message:
+            "¡Hola! Soy Alynx, tu asistente personal. Puedes pedirme direcciones o preguntas frecuentes.",
+          direction: "left",
+        });
+        setMessages(m);
+        setRenderedOutput(
+          messages.map((item) => (
+            <ChatMessage message={item.message} direction={item.direction} />
+          ))
+        );
         break;
       case "chinese":
         setLanguageCode("zh-CN");
-        console.log("chinese")
+
+        var m = messages;
+        m.push({
+          message:
+            "你好！我是 Alynx, 您的私人助理。您可以向我询问路线或任何常见问题解答。",
+          direction: "left",
+        });
+        setMessages(m);
+        setRenderedOutput(
+          messages.map((item) => (
+            <ChatMessage message={item.message} direction={item.direction} />
+          ))
+        );
+        break;
+      case "japanese":
+        setLanguageCode("zh-CN");
+
+            var m = messages;
+            m.push({
+              message:
+                "こんにちは！私はアリンクス、あなたのパーソナルアシスタントです。道順やよくある質問については私に尋ねてください。",
+              direction: "left",
+            });
+            setMessages(m);
+            setRenderedOutput(
+              messages.map((item) => (
+                <ChatMessage
+                  message={item.message}
+                  direction={item.direction}
+                />
+              ))
+            );
         break;
     }
+    setRenderedOutput(
+      messages.map((item) => (
+        <ChatMessage message={item.message} direction={item.direction} />
+      ))
+    );
   };
 
   return (
@@ -121,10 +181,15 @@ const Chat = (updateMarker) => {
       <div className="header">
         <img src="profile.jpeg" className="profile-image" />
         <p className="profile-name">Alynx</p>
-        <select className="dropdown" value={language} onChange={handleLanguageChange}>
+        <select
+          className="dropdown"
+          value={language}
+          onChange={handleLanguageChange}
+        >
           <option value="english">English</option>
           <option value="spanish">Spanish</option>
           <option value="chinese">Chinese</option>
+          <option value="japanese">Japanese</option>
         </select>
       </div>
       <div className="body">{renderedOutput}</div>
