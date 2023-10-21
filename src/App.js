@@ -1,8 +1,8 @@
-import './App.css';
-import SearchBar from './Search/SearchBar';
-import Map from './Map/Map'
-import { useState } from 'react';
-import Chat from './Chat/Chat';
+import "./App.css";
+import SearchBar from "./Search/SearchBar";
+import Map from "./Map/Map";
+import { useState } from "react";
+import Chat from "./Chat/Chat";
 import {
   GoogleMap,
   MarkerF,
@@ -11,31 +11,33 @@ import {
   DirectionsRenderer,
 } from "@react-google-maps/api";
 
-
 function App() {
+  const google = window.google;
 
-      const google = window.google;
+  const [map, setMap] = useState(<Map />);
 
-  const [map, setMap] = useState(<Map/>);
+  const [mylat, setLat] = useState(37.363577);
+  const [mylng, setLng] = useState(-120.42473);
 
-    const [mylat, setLat] = useState(37.363577);
-    const [mylng, setLng] = useState(-120.42473);
+  function success(position) {
+    setLat(position.coords.latitude);
+    setLng(position.coords.longitude);
+  }
 
- function success(position) {
-   setLat(position.coords.latitude);
-   setLng(position.coords.longitude);
- }
+  navigator.geolocation.getCurrentPosition(success, () => {});
 
- navigator.geolocation.getCurrentPosition(success, () => {});
-
-  function updateMarker(lat, lng) {
+  function updateMarker(lat, lng, name) {
+    const image =
+      "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
+  
     var marker = (
       <MarkerF
         position={{ lat: lat, lng: lng }}
-        icon={"https://maps.gstatic.com/mapfiles/ms2/micons/man.png"}
+        label={name}
+        icon={image}
       />
     );
-    
+
     const directionsService = new google.maps.DirectionsService();
 
     const origin = { lat: mylat, lng: mylng };
@@ -57,7 +59,7 @@ function App() {
           console.error(`error fetching directions ${result}`);
         }
       }
-    );    
+    );
   }
 
   return (

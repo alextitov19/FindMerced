@@ -15,6 +15,8 @@ const Chat = (updateMarker) => {
     },
   ]);
 
+  var data = require("../test-data.json");
+
   const [value, setValue] = useState("");
 
   const [recordTitle, setRecordTitle] = useState("RECORD");
@@ -55,7 +57,27 @@ const Chat = (updateMarker) => {
   }
 
   function getDirections() {
-    var searchTerm = value
+    var searchTerm = value.toLowerCase();
+
+    for (let i = 0; i < data.length; i++) {
+      let item = data[i];
+
+      const building = item.building.toLowerCase();
+      const nickname = item.nickname.toLowerCase();
+      var flag = false;
+      if (building == searchTerm) {
+        flag = true;
+      }
+      if (nickname == searchTerm) {
+        flag = true;
+      }
+      if (flag == true) {
+        updateMarker(item.lat, item.lng, item.building);
+            setValue("");
+        console.log("RETURN: ", item.building, item.lat, item.lng)
+        return;
+      }
+    }
   }
 
   function addMessage() {
@@ -70,8 +92,6 @@ const Chat = (updateMarker) => {
     console.log(messages);
 
     sendMessageToServer();
-
-    updateMarker(value);
 
     setValue("");
   }
