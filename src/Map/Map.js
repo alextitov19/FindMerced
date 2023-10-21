@@ -43,28 +43,7 @@ function Map(props) {
     }, []);
 
 
-    function getDirections() {
-        const directionsService = new google.maps.DirectionsService();
-
-        const origin = { lat: lat, lng: lng };
-        const destination = { lat: parseFloat(props.lat), lng: parseFloat(props.lng) };
-        directionsService.route(
-            {
-                origin: origin,
-                destination: props.destination,
-                travelMode: google.maps.TravelMode.WALKING
-            },
-            (result, status) => {
-                if (status === google.maps.DirectionsStatus.OK) {
-                    console.log(`Success ${result}`);
-                    setDirections(result);
-
-                } else {
-                    console.error(`error fetching directions ${result}`);
-                }
-            }
-        );
-    }
+    
 
 
 
@@ -82,22 +61,9 @@ function Map(props) {
                 >
                     {props.marker}
                     <MarkerF position={{ lat: lat, lng: lng }} icon={"https://maps.gstatic.com/mapfiles/ms2/micons/man.png"} />
-                     <DistanceMatrixService
-                        options={{
-                            destinations: props.destination,
-                            origins: [{ lat: lat, lng: lng }],
-                            travelMode: "WALKING",
-                        }}
-                        callback={(response) => {
-                            console.log("Got resp");
-                            console.log(response.rows[0].elements[0].distance.text);
-                            console.log(response.rows[0].elements[0].duration.text);
-                            setDistance(response.rows[0].elements[0].distance.text);
-                            setDuration(response.rows[0].elements[0].duration.text);
-                        }}
-                    />
+                     
                      <DirectionsRenderer
-                        directions={directions}
+                        directions={props.directions}
                     />
 
                 </GoogleMap>

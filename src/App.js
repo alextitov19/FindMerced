@@ -2,19 +2,62 @@ import './App.css';
 import SearchBar from './Search/SearchBar';
 import Map from './Map/Map'
 import { useState } from 'react';
-import { MarkerF } from '@react-google-maps/api';
 import Chat from './Chat/Chat';
+import {
+  GoogleMap,
+  MarkerF,
+  useLoadScript,
+  DistanceMatrixService,
+  DirectionsRenderer,
+} from "@react-google-maps/api";
+
 
 function App() {
 
-  const [map, setMap] = useState(<Map
-  />);
+      const google = window.google;
 
-  function updateMarker(text) {
-    console.log(text)
-    setMap(<Map
-      destination={text}
-    />)
+  const [map, setMap] = useState(<Map/>);
+
+    const [mylat, setLat] = useState(37.363577);
+    const [mylng, setLng] = useState(-120.42473);
+
+ function success(position) {
+   setLat(position.coords.latitude);
+   setLng(position.coords.longitude);
+ }
+
+ navigator.geolocation.getCurrentPosition(success, () => {});
+
+  function updateMarker(lat, lng) {
+    var marker = (
+      <MarkerF
+        position={{ lat: lat, lng: lng }}
+        icon={"https://maps.gstatic.com/mapfiles/ms2/micons/man.png"}
+      />
+    );
+    
+    const directionsService = new google.maps.DirectionsService();
+
+    const origin = { lat: mylat, lng: mylng };
+    const destination = {
+      lat: parseFloat(lat),
+      lng: parseFloat(lng),
+    };
+    directionsService.route(
+      {
+        origin: origin,
+        destination: destination,
+        travelMode: google.maps.TravelMode.WALKING,
+      },
+      (result, status) => {
+        if (status === google.maps.DirectionsStatus.OK) {
+          console.log(`Success ${result}`);
+          setMap(<Map marker={marker} directions={result} />);
+        } else {
+          console.error(`error fetching directions ${result}`);
+        }
+      }
+    );    
   }
 
   return (

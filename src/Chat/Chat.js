@@ -6,7 +6,6 @@ import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
 
-
 const Chat = (updateMarker) => {
   const [messages, setMessages] = useState([
     {
@@ -18,11 +17,12 @@ const Chat = (updateMarker) => {
 
   const [value, setValue] = useState("");
 
-    const [recordTitle, setRecordTitle] = useState("RECORD");
-
+  const [recordTitle, setRecordTitle] = useState("RECORD");
 
   const [language, setLanguage] = useState("English");
   const [languageCode, setLanguageCode] = useState("en-US");
+
+  const [mode, selectMode] = useState("directions");
 
   const {
     transcript,
@@ -30,7 +30,6 @@ const Chat = (updateMarker) => {
     resetTranscript,
     browserSupportsSpeechRecognition,
   } = useSpeechRecognition();
-
 
   const onChange = (event) => {
     setValue(event.target.value);
@@ -41,31 +40,43 @@ const Chat = (updateMarker) => {
       SpeechRecognition.stopListening();
       setValue(transcript);
       setRecordTitle("RECORD");
-    } else {      
+    } else {
       SpeechRecognition.startListening({ language: languageCode });
-      setRecordTitle("STOP")
+      setRecordTitle("STOP");
     }
-  } 
+  }
+
+  function sendClicked() {
+    if (mode == "directions") {
+      getDirections();
+    } else {
+      addMessage();
+    }
+  }
+
+  function getDirections() {
+    var searchTerm = value
+  }
 
   function addMessage() {
     var m = messages;
-    m.push({message: value, direction: "right"});
+    m.push({ message: value, direction: "right" });
     setMessages(m);
     setRenderedOutput(
-      messages.map((item) => <ChatMessage message={item.message} direction={item.direction} />)
+      messages.map((item) => (
+        <ChatMessage message={item.message} direction={item.direction} />
+      ))
     );
     console.log(messages);
 
     sendMessageToServer();
 
+    updateMarker(value);
 
-    updateMarker(value)
-
-    setValue("")
+    setValue("");
   }
 
   function sendMessageToServer() {
-
     axios
       .post("http://localhost:8080/chat", {
         message: value,
@@ -99,6 +110,9 @@ const Chat = (updateMarker) => {
     ))
   );
 
+  const handleModeChange = (event) => {
+    selectMode(event.target.value);
+  };
 
   const handleLanguageChange = (event) => {
     setLanguage(event.target.value);
@@ -152,21 +166,18 @@ const Chat = (updateMarker) => {
       case "japanese":
         setLanguageCode("zh-CN");
 
-            var m = messages;
-            m.push({
-              message:
-                "こんにちは！私はアリンクス、あなたのパーソナルアシスタントです。道順やよくある質問については私に尋ねてください。",
-              direction: "left",
-            });
-            setMessages(m);
-            setRenderedOutput(
-              messages.map((item) => (
-                <ChatMessage
-                  message={item.message}
-                  direction={item.direction}
-                />
-              ))
-            );
+        var m = messages;
+        m.push({
+          message:
+            "こんにちは！私はアリンクス、あなたのパーソナルアシスタントです。道順やよくある質問については私に尋ねてください。",
+          direction: "left",
+        });
+        setMessages(m);
+        setRenderedOutput(
+          messages.map((item) => (
+            <ChatMessage message={item.message} direction={item.direction} />
+          ))
+        );
         break;
     }
     setRenderedOutput(
@@ -179,8 +190,6 @@ const Chat = (updateMarker) => {
   return (
     <div className="button-85">
       <div className="header">
-        <img src="profile.jpeg" className="profile-image" />
-        <p className="profile-name">Alynx</p>
         <select
           className="dropdown"
           value={language}
@@ -190,6 +199,14 @@ const Chat = (updateMarker) => {
           <option value="spanish">Spanish</option>
           <option value="chinese">Chinese</option>
           <option value="japanese">Japanese</option>
+        </select>
+
+        <img src="profile.jpeg" className="profile-image" />
+        <p className="profile-name">Alynx</p>
+
+        <select className="dropdown" value={mode} onChange={handleModeChange}>
+          <option value="directions">Directions</option>
+          <option value="catcard">CatCard</option>
         </select>
       </div>
       <div className="body">{renderedOutput}</div>
@@ -203,12 +220,12 @@ const Chat = (updateMarker) => {
         <p class="footer-send-button-first" onClick={clickedRecord} value>
           {recordTitle}
         </p>
-        <p class="footer-send-button" onClick={addMessage} value>
+        <p class="footer-send-button" onClick={sendClicked} value>
           SEND
         </p>
       </div>
     </div>
   );
-}
+};
 
 export default Chat;
