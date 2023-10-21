@@ -1,47 +1,182 @@
 [
-    {
-        "building": "Granite Pass",
-        "room": "171",
-        "nickname": "CatCard",
-        "hours": "9AM-4PM 10AM-2PM",
-        "days": "Mon-Fri Sat-Sun",
-        "lat": 37.363577,
-        "lng": -120.424730
-    },
-    {
-        "building": "Granite Pass",
-        "room": "172",
-        "nickname": "Conference Room",
-        "hours": "9AM-4PM 10AM-2PM",
-        "days": "Mon-Fri Sat-Sun",
-        "lat": 37.364577,
-        "lng": -120.424730
-    },
-    {
-        "building": "Granite Pass",
-        "room": "173",
-        "nickname": "Conference Room",
-        "hours": "9AM-4PM 10AM-2PM",
-        "days": "Mon-Fri Sat-Sun",
-        "lat": 37.362577,
-        "lng": -120.424730
-    },
-    {
-        "building": "Sentinel Rock",
-        "room": "288",
-        "nickname": "SR-288",
-        "hours": "11AM-8PM",
-        "days": "MXXTFXX",
-        "lat": 37.363577,
-        "lng": -120.425730
-    },
-    {
-        "building": "Classroom & Offices Building 2",
-        "room": "120",
-        "nickname": "COB2-120",
-        "hours": "N/A",
-        "days": "MTWTFXX",
-        "lat": 37.366724,
-        "lng": -120.424772
-    }
+  {
+    "building": "Granite Pass",
+    "room": "171",
+    "nickname": "CatCard",
+    "hours": "9AM-4PM 10AM-2PM",
+    "days": "Mon-Fri Sat-Sun",
+    "lat": 37.36285515257078,
+    "lng": -120.4262835082386
+  },
+  {
+    "building": "Granite Pass",
+    "room": "N/A",
+    "nickname": "GP",
+    "hours": "N/A",
+    "days": "N/A",
+    "lat": 37.36285248776859,
+    "lng": -120.42607764869676
+  },
+  {
+    "building": "Sentilen Rock",
+    "room": "N/A",
+    "nickname": "SR",
+    "hours": "N/A",
+    "days": "N/A",
+    "lat": 37.36255320665591,
+    "lng": -120.42586229534487
+  },
+  {
+    "building": "Admin Building",
+    "room": "N/A",
+    "nickname": "Welcome Center",
+    "hours": "N/A",
+    "days": "N/A",
+    "lat": 37.36228280088963,
+    "lng": -120.426842011519451
+  },
+  {
+    "building": "University Store",
+    "room": "N/A",
+    "nickname": "Bobcat Store",
+    "hours": "N/A",
+    "days": "N/A",
+    "lat": 37.36216224288633,
+    "lng": -120.42769446831183
+  },
+  {
+    "building": "Glacier Point",
+    "room": "N/A",
+    "nickname": "GP",
+    "hours": "N/A",
+    "days": "N/A",
+    "lat": 37.36322664082851,
+    "lng": -120.42483211121233
+  },
+  {
+    "building": "Arts and Computational Sciences",
+    "room": "N/A",
+    "nickname": "ACS",
+    "hours": "N/A",
+    "days": "N/A",
+    "lat": 37.36391674603709,
+    "lng": -120.42406262233165
+  },
+  {
+    "building": "Pavillion",
+    "room": "N/A",
+    "nickname": "Pav",
+    "hours": "N/A",
+    "days": "N/A",
+    "lat": 37.363965612201255,
+    "lng": -120.42446541298682
+  },
+  {
+    "building": "Biomedical Sciences and Physics",
+    "room": "N/A",
+    "nickname": "BSP",
+    "hours": "N/A",
+    "days": "N/A",
+    "lat": 37.364540816055936,
+    "lng": -120.42334416118973
+  },
+  {
+    "building": "Science and Engineering Building 2",
+    "room": "N/A",
+    "nickname": "SE2",
+    "hours": "N/A",
+    "days": "N/A",
+    "lat": 37.36596433676383,
+    "lng": -120.42178861346441
+  },
+  {
+    "building": "Science and Engineering Building 1",
+    "room": "N/A",
+    "nickname": "SE1",
+    "hours": "N/A",
+    "days": "N/A",
+    "lat": 37.36630153250777,
+    "lng": -120.42229221431684
+  },
+  {
+    "building": "Classroom and Office Building 1",
+    "room": "N/A",
+    "nickname": "COB1",
+    "hours": "N/A",
+    "days": "N/A",
+    "lat": 37.36683226934188,
+    "lng": -120.42349637006679
+  },
+  {
+    "building": "Classroom and Office Building 2",
+    "room": "N/A",
+    "nickname": "COB2",
+    "hours": "N/A",
+    "days": "N/A",
+    "lat": 37.36700497754682,
+    "lng": -120.42449368823661
+  },
+  {
+    "building": "UC Merced Library",
+    "room": "N/A",
+    "nickname": "Library",
+    "hours": "N/A",
+    "days": "N/A",
+    "lat": 37.36607051154476,
+    "lng": -120.42466739247845
+  },
+  {
+    "building": "Bobcat Snack Shop",
+    "room": "N/A",
+    "nickname": "Snack Shop",
+    "hours": "N/A",
+    "days": "N/A",
+    "lat": 37.36629119642104,
+    "lng": -120.42435005495508
+  },
+  {
+    "building": "Lantern Cafe",
+    "room": "N/A",
+    "nickname": "Cafe",
+    "hours": "N/A",
+    "days": "N/A",
+    "lat": 37.366167832284496,
+    "lng": -120.42486572843058
+  },
+  {
+    "building": "Student Services Building",
+    "room": "N/A",
+    "nickname": "SSB",
+    "hours": "N/A",
+    "days": "N/A",
+    "lat": 37.36766894446931,
+    "lng": -120.42283479523638
+  },
+  {
+    "building": "Social Sciences and Management",
+    "room": "N/A",
+    "nickname": "SSM",
+    "hours": "N/A",
+    "days": "N/A",
+    "lat": 37.36722237046859,
+    "lng": -120.42231770754827
+  },
+  {
+    "building": "Transportation and Parking Services",
+    "room": "N/A",
+    "nickname": "TAPS",
+    "hours": "N/A",
+    "days": "N/A",
+    "lat": 37.36704053614118,
+    "lng": -120.4202604419968
+  },
+  {
+    "building": "Campus Police",
+    "room": "N/A",
+    "nickname": "Police",
+    "hours": "N/A",
+    "days": "N/A",
+    "lat": 37.36656279442738,
+    "lng": -120.42035933422038
+  }
 ]
